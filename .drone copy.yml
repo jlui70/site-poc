@@ -24,18 +24,18 @@ steps:
   commands:
   - sleep 5 ## give docker enough time to start
   - docker login -u luiz7030 -p Caelui191204! #ou qualquer registry
-  - docker build  -t luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7} .
-  - docker push luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7}
+  - docker build  -t uzieljr/poc-site:${DRONE_COMMIT_SHA:0:7} .
+  - docker push uzieljr/poc-site:${DRONE_COMMIT_SHA:0:7}
 
 
 ######################################################   Delivery
 - name: delivery
-  image: luiz7030/plugin-drone:9.0
+  image: uzieljr/plugin-drone:9.0
   commands:
   - git clone git@github.com:jlui70/deploy-applications.git
   - cd deploy-applications 
   - sed -E -i.bak 's%(uzieljr/poc-site:).*%uzieljr/poc-site:${DRONE_COMMIT_SHA:0:7}%' site-helm/templates/uzi-poc-site-deployment.yml
-  - git add . && git commit -m "Change image site-poc to luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7}" && git push
+  - git add . && git commit -m "Change image site-poc to uzieljr/poc-site:${DRONE_COMMIT_SHA:0:7}" && git push
 
 
 ########################################################   Services   
