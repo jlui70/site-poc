@@ -34,7 +34,7 @@ steps:
   commands:
   - git clone git@github.com:jlui70/deploy-applications.git
   - cd deploy-applications 
-  - sed -E -i.bak 's%(uzieljr/poc-site:).*%uzieljr/poc-site:${DRONE_COMMIT_SHA:0:7}%' site-helm/templates/uzi-poc-site-deployment.yml
+  - sed -E -i.bak 's%(luiz7030/poc-site:).*%luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7}%' site-helm/templates/uzi-poc-site-deployment.yml
   - git add . && git commit -m "Change image site-poc to luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7}" && git push
 
 
