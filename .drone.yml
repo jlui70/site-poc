@@ -23,7 +23,7 @@ steps:
   privileged: true
   commands:
   - sleep 5 ## give docker enough time to start
-  - docker login -u luiz7030 -p Caelui191204! #ou qualquer registry
+  - docker login -u luiz7030 -p Caelui191204 #ou qualquer registry
   - docker build -t luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7} .
   - docker push luiz7030/poc-site:${DRONE_COMMIT_SHA:0:7}
 
