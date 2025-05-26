@@ -30,7 +30,7 @@ steps:
 
 ######################################################   Delivery
 - name: delivery
-  image: luiz7030/plugin-drone:9.0
+  image: luiz7030/plugin-drone:10.0
   commands:
   - git clone git@github.com:jlui70/deploy-applications.git
   - cd deploy-applications 
